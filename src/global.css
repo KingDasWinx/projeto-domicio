@@ -1,0 +1,25 @@
+* {
+  padding: 0;
+  margin: 0;
+  user-select: none;
+}
+
+body {
+  background-color: #282a36;
+}
+.HomeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+}
+
+.CardContainer-pai {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
