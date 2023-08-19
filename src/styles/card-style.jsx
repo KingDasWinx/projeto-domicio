@@ -8,6 +8,8 @@ export const CardContainer = styled.div`
     flex-direction: column;
     padding: 15px;
     gap: 10px;
+    width: 26%;
+    max-width: 270px;
     height: 315px;
     border-radius: 10px;
 
@@ -28,6 +30,7 @@ export const CardContainer = styled.div`
         align-items: center;
         padding-top: 12px;
         width: 100%;
+        flex-wrap: wrap;
     }
 
     .card-section{
@@ -35,26 +38,48 @@ export const CardContainer = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        width: 100%;
     }
     .imagem {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 10px;
-        height: 200px;
         background-color: #f8f8f2;
         border-radius: 10px;
+        width: 100%;
+        object-fit: contain;
     }
     img {
         object-fit: contain;
-        width: 200px;
+        width: 100%;
+        height: 200px;
+        background-color: transparent;
     }
     p {
         color: #f1fa8c;
         font-size: 24px;
+        white-space: nowrap;
     }
     .card-estoque p {
         color: #50fa7b;
         font-size: 17px;
+    }
+
+    @media (max-width: 700px) {
+        && {
+            width: 60%;
+            height: 100%;
+        }
+        p {
+            font-size: 24px;
+        }
+        .card-estoque p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .comprar {
+            font-size: 18px;
+            padding: 12px 15px;
+        }
     }
 `;

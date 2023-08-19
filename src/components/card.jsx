@@ -1,54 +1,59 @@
 import { CardContainer } from "../styles/card-style"
 
-import tomateVermelho from "../assets/tomateVermelho.png"
-import tomateVerde from "../assets/tomateVerde.png"
-import { useState } from "react"
-
+import tomateVermelho from "../assets/maçaVermelha.png"
+import tomateVerde from "../assets/maçaVerde.png"
+import { useEffect, useState } from "react"
+import { Link } from "react-router-dom"
+import { get, set } from "local-storage"
 
 
 export const Card = () => {
 
-    const [stock, setStock] = useState({
-        verde: 500,
-        vermelho: 500,
-    })
+    const [macaVerde, setMacaVerde] = useState(get('macaVerde') || 0);
+    const [macaVermelha, setMacaVermelha] = useState(get('macaVermelha') || 0);
 
-    const handleBuyTomato = (type) => {
-        if (stock[type] > 0) {
-            setStock((prevStock) => ({
-                ...prevStock,
-                [type]: prevStock[type] - 1,
-            }));
+    
+
+    useEffect(() => {
+        if (macaVerde === 0) {
+            set('macaVerde', 500);
         }
-    };
+        if (macaVermelha === 0) {
+            set('macaVermelha', 500);
+        }
+    }, []);
 
     return (
         <div className="CardContainer-pai">
             <CardContainer>
                 <div className="card-nome" >
-                    <p>Tomate Vermelho</p>
+                    <p>Maça Vermelha</p>
                 </div>
                 <div className="card-section">
                     <div className="imagem">
                         <img src={tomateVermelho} alt="" />
                     </div>
                     <div className="card-estoque">
-                        <p className="estoque-text">Estoque: {stock.vermelho}</p>
-                        <button className="comprar" onClick={() => handleBuyTomato('vermelho')}>COMPRAR</button>
+                        <p className="estoque-text">Estoque: {macaVermelha}</p>
+                        <Link to="/compra/vermelha">
+                            <button className="comprar">COMPRAR</button>
+                        </Link>
                     </div>
                 </div>
             </CardContainer>
             <CardContainer>
                 <div className="card-nome" >
-                    <p>Tomate Verde</p>
+                    <p>Maça Verde</p>
                 </div>
                 <div className="card-section">
                     <div className="imagem">
                         <img src={tomateVerde} alt="" />
                     </div>
                     <div className="card-estoque">
-                        <p className="estoque-text">Estoque: {stock.verde}</p>
-                        <button className="comprar" onClick={() => handleBuyTomato('verde')}>COMPRAR</button>
+                        <p className="estoque-text">Estoque: {macaVerde}</p>
+                        <Link to="/compra/verde">
+                            <button className="comprar">COMPRAR</button>
+                        </Link>
                     </div>
                 </div>
             </CardContainer>
