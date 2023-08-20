@@ -12,11 +12,11 @@ export const CardCompra = () => {
     const maca = [
         {
             nome: "Maça Verde",
-            des: "essa é a maça verde"
+            des: "a vermelha é melhor"
         },
         {
             nome: "Maça Vermelha",
-            des: "essa é a maça vermelha"
+            des: "maça da boa"
         }
     ]
 
@@ -26,9 +26,15 @@ export const CardCompra = () => {
     const macaCor = cor === 'verde' ? `${maca[0].nome}` : `${maca[1].nome}`;
     const macaDes = cor === 'verde' ? `${maca[0].des}` : `${maca[1].des}`;
 
+    const [mainDisplay, setMaisDisplay] = useState('flex');
+
+    const hideMain = () => {
+        setMaisDisplay('none');
+    }
+
     return (
         <div className="CardCompra">
-            <CardCompraContainer>
+            <CardCompraContainer style={{ display: mainDisplay}} >
                 <div className="nome" >
                     <p>{macaCor}</p>
                 </div>
@@ -44,7 +50,7 @@ export const CardCompra = () => {
                         <p className="quantidade-text">Quantidade</p>
                         <input className="quantidade-input" type="text" />
                     </div>
-                    <button className="comprar">Comprar</button>
+                    <button onClick={hideMain} className="comprar">Comprar</button>
                 </div>
             </CardCompraContainer>
         </div>
