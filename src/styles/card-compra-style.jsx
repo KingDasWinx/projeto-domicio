@@ -5,11 +5,11 @@ export const CardCompraContainer = styled.div`
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    width: 36%;
     background-color: #6272a4;
     border-radius: 10px;
     padding: 10px;
     gap: 10px;
+    width: 22%;
 
     input {
         padding: 5px;
@@ -35,8 +35,6 @@ export const CardCompraContainer = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 100%;
-        height: 100%;
         gap: 10px;
     }
     .imagem {
@@ -62,6 +60,20 @@ export const CardCompraContainer = styled.div`
         justify-content: flex-start;
         align-items: flex-start;
         font-size: 20px;
+    }
+
+
+    .quantidade-text {
+        margin-bottom: 5px;
+    }
+    .quantidade-input {
+        width: 200px;
+    }
+
+    @media (max-width: 1100px) {
+        && {
+            width: 50%;
+        }
     }
 
     @media (max-width: 700px) {

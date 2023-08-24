@@ -47,8 +47,8 @@ export const CardCompra = () => {
                         <p className="descricao-area">{macaDes}</p>
                     </div>
                     <div className="quantidade">
-                        <p className="quantidade-text">Quantidade</p>
-                        <input className="quantidade-input" type="text" />
+                        <p className="quantidade-text">Quantidade:</p>
+                        <input className="quantidade-input" type="text" placeholder="quantidade"/>
                     </div>
                     <button onClick={hideMain} className="comprar">Comprar</button>
                 </div>
